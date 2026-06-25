@@ -1,0 +1,277 @@
+:root {
+    /* Cores Institucionais */
+    --primary-blue: #004AAD;
+    --secondary-blue: #00AEEF;
+    --accent-blue: #002D6B;
+    --white: #FFFFFF;
+    --gray-100: #F8F9FA;
+    --gray-200: #E9ECEF;
+    --gray-300: #DEE2E6;
+    --gray-400: #CED4DA;
+    --gray-500: #ADB5BD;
+    --gray-600: #6C757D;
+    --gray-700: #495057;
+    --gray-800: #343A40;
+    --gray-900: #212529;
+    --success: #28A745;
+    --warning: #FFC107;
+    --danger: #DC3545;
+    --info: #17A2B8;
+
+    /* Tema Claro (Default) */
+    --bg-color: var(--gray-100);
+    --card-bg: var(--white);
+    --text-color: var(--gray-800);
+    --border-color: var(--gray-300);
+    --sidebar-bg: var(--primary-blue);
+    --sidebar-text: var(--white);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.dark-theme {
+    --bg-color: #0F172A;
+    --card-bg: #1E293B;
+    --text-color: #F1F5F9;
+    --border-color: #334155;
+    --sidebar-bg: #111827;
+    --sidebar-text: #F1F5F9;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --gray-100: #1E293B;
+    --gray-800: #F1F5F9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Login Page Styles */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #001A3D 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.login-card h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.login-card p {
+    color: var(--gray-600);
+    margin-bottom: 30px;
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.auth-tab {
+    padding: 10px 20px;
+    border: none;
+    background: var(--gray-200);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--gray-700);
+    transition: var(--transition);
+}
+
+.auth-tab.active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.auth-form {
+    display: none;
+    animation: slideIn 0.4s ease-out;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--gray-100);
+    color: var(--text-color);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-blue);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--accent-blue);
+    transform: translateY(-2px);
+}
+
+/* Biometric Scanner Styles */
+.biometric-scanner {
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    background: rgba(0, 74, 173, 0.05);
+}
+
+.biometric-scanner i {
+    font-size: 4rem;
+    color: var(--primary-blue);
+    transition: var(--transition);
+}
+
+.scanner-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary-blue);
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 15px var(--secondary-blue);
+    animation: scan 2s linear infinite;
+    display: none;
+}
+
+.biometric-scanner.scanning .scanner-line {
+    display: block;
+}
+
+.biometric-scanner.scanning i {
+    opacity: 0.5;
+}
+
+/* Animations */
+@keyframes scan {
+    0% { top: 0%; }
+    50% { top: 100%; }
+    100% { top: 0%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .login-card h1 {
+        font-size: 1.2rem;
+    }
+}
